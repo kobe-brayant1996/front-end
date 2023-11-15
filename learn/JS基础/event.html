@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .child {
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+  <script>
+    // const handleClickParent = (e) => {
+    //   console.log('parent', e);
+    // };
+    // const handleClickChild = (event) => {
+    //   console.log('child', event);
+    // };
+    const parentDom = document.getElementsByClassName('parent')[0];
+    const childDom = document.getElementsByClassName('child')[0];
+    parentDom.addEventListener('click', (e) => {
+      console.log('parent', e)
+    }, true);
+  
+    childDom.addEventListener('click', (e) => {
+      e.stopPropagation()
+      console.log('child', e)
+    }, true);
+  </script>
+</body>
+</html>
